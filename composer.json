@@ -6,6 +6,13 @@
         "framework",
         "laravel"
     ],
+	"extra": {
+    "laravel": {
+        "dont-discover": [
+            "laravel/dusk"
+        ]
+    }
+	},
     "license": "MIT",
     "require": {
         "php": "^7.1.3",
