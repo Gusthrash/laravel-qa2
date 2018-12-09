@@ -2,7 +2,7 @@
 namespace App\Http\Controllers;
 use App\Question;
 use Illuminate\Http\Request;
-class QuestionController extends Controller
+class QuestionsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -11,8 +11,11 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        $questions = Question::latest()->paginate(5);
-        return view('questions.index', compact('questions'));
+       
+        $questions = Question::with('user')->latest()->paginate(10);
+    return view('questions.index', compact('questions'));
+    
+      
     }
     /**
      * Show the form for creating a new resource.
