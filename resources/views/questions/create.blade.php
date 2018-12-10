@@ -15,6 +15,7 @@
                             
                         </div>
                 <div class="card-body">
+                        @include ('layouts._messages')
                 <form action="{{ route('questions.store') }}" method="post">
                     @csrf
                     <div class=form-group>   
