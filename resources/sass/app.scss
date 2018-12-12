@@ -33,17 +33,21 @@
     }
 
     &.answered {
-      border: 1px solid $green;
-      color: $green;
+      border: 1px solid $color-green;
+      color: $color-green;
     }
 
     &.answered-accepted {
-      background: $green;
-      color: $white;
+      background: $color-green;
+      color: $color-white;
     }
   }
 
   .view {
     margin-top: 10px;
   }
+}
+
+form.form-delete {
+  display: inline;
 }
