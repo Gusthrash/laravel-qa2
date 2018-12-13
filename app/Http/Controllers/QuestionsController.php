@@ -2,7 +2,7 @@
 namespace App\Http\Controllers;
 use App\Question;
 use Illuminate\Http\Request;
-use  App\Http\Requests\AskQuestionRequest;
+use App\Http\Requests\AskQuestionRequest;
 class QuestionsController extends Controller
 {
     /**
@@ -11,12 +11,9 @@ class QuestionsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-       
+    {        
         $questions = Question::with('user')->latest()->paginate(10);
-    return view('questions.index', compact('questions'));
-    
-      
+        return view('questions.index', compact('questions'));        
     }
     /**
      * Show the form for creating a new resource.
@@ -57,7 +54,7 @@ class QuestionsController extends Controller
      */
     public function edit(Question $question)
     {
-        return view('questions.edit', compact('question'));
+        return view("questions.edit", compact('question'));
     }
     /**
      * Update the specified resource in storage.
@@ -68,8 +65,8 @@ class QuestionsController extends Controller
      */
     public function update(AskQuestionRequest $request, Question $question)
     {
-        $question->update($request->only('title','body'));
-        return redirect('/questions')->with('success','u question has been updated');
+        $question->update($request->only('title', 'body'));
+        return redirect('/questions')->with('success', "Your question has been updated.");
     }
     /**
      * Remove the specified resource from storage.
@@ -80,7 +77,6 @@ class QuestionsController extends Controller
     public function destroy(Question $question)
     {
         $question->delete();
-        return redirect('/questions')->with('success','you fucking done it!!');
-
+        return redirect('/questions')->with('success', "Your question has been deleted.");
     }
 }
